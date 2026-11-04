@@ -73,9 +73,48 @@
 
     <section class="section" id="about">
       <div class="container about-grid">
-        <figure class="portrait-placeholder">
-          <img class="portrait-photo" src="./images/about-photo-hq.webp" alt="Евгений Прудников — психолог-консультант и гипнотерапевт" width="320" height="400" loading="lazy" decoding="async">
-        </figure>
+        <div class="about-gallery" data-about-gallery>
+          <figure class="about-gallery-main is-portrait">
+            <button class="gallery-arrow gallery-arrow-prev" type="button" aria-label="Предыдущее изображение" data-gallery-prev>‹</button>
+            <button class="about-gallery-open" type="button" aria-label="Открыть изображение крупнее" data-gallery-open>
+              <img class="portrait-photo" data-gallery-main src="./images/about-photo-hq.webp" alt="Евгений Прудников — психолог-консультант и гипнотерапевт" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-arrow gallery-arrow-next" type="button" aria-label="Следующее изображение" data-gallery-next>›</button>
+          </figure>
+
+          <div class="about-gallery-thumbs" aria-label="Фотография и сертификаты">
+            <button class="gallery-thumb is-active" type="button"
+              data-gallery-src="./images/about-photo-hq.webp"
+              data-gallery-alt="Евгений Прудников — психолог-консультант и гипнотерапевт"
+              data-gallery-kind="portrait"
+              aria-label="Портрет Евгения Прудникова">
+              <img src="./images/about-photo-hq.webp" alt="" loading="lazy">
+            </button>
+            <button class="gallery-thumb" type="button"
+              data-gallery-src="./images/certificate-diploma.webp"
+              data-gallery-alt="Диплом по психологическому консультированию Евгения Прудникова"
+              data-gallery-kind="certificate"
+              aria-label="Диплом по психологическому консультированию">
+              <img src="./images/certificate-diploma.webp" alt="" loading="lazy">
+            </button>
+            <button class="gallery-thumb" type="button"
+              data-gallery-src="./images/certificate-hypnosis.webp"
+              data-gallery-alt="Сертификат American Academy of Hypnosis Евгения Прудникова"
+              data-gallery-kind="certificate"
+              aria-label="Сертификат American Academy of Hypnosis">
+              <img src="./images/certificate-hypnosis.webp" alt="" loading="lazy">
+            </button>
+            <button class="gallery-thumb" type="button"
+              data-gallery-src="./images/certificate-psychologist.webp"
+              data-gallery-alt="Сертификат консультанта-психолога Евгения Прудникова"
+              data-gallery-kind="certificate"
+              aria-label="Сертификат консультанта-психолога">
+              <img src="./images/certificate-psychologist.webp" alt="" loading="lazy">
+            </button>
+          </div>
+          <p class="gallery-hint">Нажми на миниатюру или листай стрелками</p>
+        </div>
+
         <div class="about-copy">
           <span class="kicker">Обо мне</span>
           <h2>Здесь можно<br><em>выдохнуть</em></h2>
@@ -89,6 +128,11 @@
         </div>
       </div>
     </section>
+
+    <dialog class="about-lightbox" data-about-lightbox>
+      <button class="lightbox-close" type="button" aria-label="Закрыть" data-lightbox-close>×</button>
+      <img data-lightbox-image src="" alt="">
+    </dialog>
 
     <section class="section section-dark" id="stories">
       <div class="container">
