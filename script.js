@@ -81,3 +81,27 @@ if(aboutGallery){
     if(event.key==='Escape'&&lightbox?.open) lightbox.close();
   });
 }
+
+
+// NEW ABOUT PORTRAIT LOADER
+(async()=>{
+  try{
+    const urls=Array.from({length:6},(_,i)=>`./images/about-photo-data/${i}.txt?v=20261105`);
+    const parts=await Promise.all(urls.map(async url=>{
+      const response=await fetch(url,{cache:"no-store"});
+      if(!response.ok) throw new Error("Не удалось загрузить часть фотографии");
+      return (await response.text()).trim();
+    }));
+    const portraitSrc="data:image/webp;base64,"+parts.join("");
+    const gallery=document.querySelector("[data-about-gallery]");
+    if(!gallery) return;
+    const main=gallery.querySelector("[data-gallery-main]");
+    const portraitThumb=gallery.querySelector('.gallery-thumb[data-gallery-kind="portrait"]');
+    const thumbImage=portraitThumb?.querySelector("img");
+    if(portraitThumb) portraitThumb.dataset.gallerySrc=portraitSrc;
+    if(thumbImage) thumbImage.src=portraitSrc;
+    if(main && portraitThumb?.classList.contains("is-active")) main.src=portraitSrc;
+  }catch(error){
+    console.error("Не удалось собрать новый портрет:",error);
+  }
+})();
