@@ -203,9 +203,30 @@
         <span class="kicker">Первый шаг</span>
         <h2>Давай разберёмся,<br>что тебя <em>беспокоит</em></h2>
         <p>Расскажи, с каким вопросом хочешь обратиться: тревога, страхи, отношения, самореализация. Начать можно с короткого сообщения.</p>
-        <a class="button button-primary" href="https://t.me/Evgeniy_Prudnikov" target="_blank" rel="noopener noreferrer">Написать в Telegram <span aria-hidden="true">↗</span></a>
-        <p class="contact-note">Пока сайт размещается на GitHub Pages, запись работает через Telegram. Форму с отправкой данных подключим отдельно — с корректной политикой обработки персональных данных.</p>
-      </div>
+        <form class="contact-form" data-contact-form data-topic="Сайт для женщин" data-consent-version="05.11.2026">
+          <div class="contact-fields">
+            <label class="contact-field">
+              <span>Как к вам обращаться?</span>
+              <input type="text" name="name" maxlength="80" autocomplete="name" required placeholder="Имя">
+            </label>
+            <label class="contact-field">
+              <span>Коротко опишите запрос</span>
+              <textarea name="request" maxlength="1200" required placeholder="Опишите ситуацию без сведений о здоровье, интимной жизни и других специальных категорий персональных данных."></textarea>
+              <small>Эта форма только для первичного обращения. Чувствительные сведения обсуждаются после отдельного письменного согласия, если они действительно понадобятся.</small>
+            </label>
+          </div>
+          <div class="consent-stack">
+            <label class="consent-check">
+              <input type="checkbox" name="personal_data_consent" required>
+              <span>Я свободно и осознанно даю согласие Евгению Прудникову на обработку обычных персональных данных для ответа на обращение и записи на консультацию. <a href="./consent/" target="_blank" rel="noopener">Текст согласия</a>.</span>
+            </label>
+            <label class="consent-check">
+              <input type="checkbox" name="special_data_notice" required>
+              <span>Я подтверждаю, что не передаю через эту форму специальные категории персональных данных. Для сведений о здоровье, интимной жизни и других специальных категорий требуется <a href="./special-consent/" target="_blank" rel="noopener">отдельное письменное согласие</a>.</span>
+            </label>
+          </div>
+          <button class="button button-primary" type="submit">Продолжить в Telegram <span aria-hidden="true">↗</span></button>
+          </div>
     </section>
   </main>
   <footer class="footer">

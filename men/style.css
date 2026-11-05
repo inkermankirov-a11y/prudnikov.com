@@ -88,3 +88,22 @@
   .footer-channels{width:100%}
   .footer-channels a,.footer-channel{flex:1 1 auto}
 }
+
+
+/* Contact form and consent gate */
+.contact-form{max-width:720px;margin:30px auto 0;text-align:left}
+.contact-fields{display:grid;gap:15px;margin-bottom:18px}
+.contact-field{display:grid;gap:7px}
+.contact-field>span{font-size:12px;font-weight:800;letter-spacing:.02em;color:var(--ink)}
+.contact-field input,.contact-field textarea{width:100%;border:1px solid #d9d1ca;border-radius:14px;background:#fff;padding:14px 16px;font:inherit;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s}
+.contact-field textarea{resize:vertical;min-height:122px;line-height:1.55}
+.contact-field input:focus,.contact-field textarea:focus{border-color:var(--rose);box-shadow:0 0 0 3px rgba(139,101,95,.10)}
+.contact-field small{font-size:11px;line-height:1.5;color:#7a767c}
+.consent-stack{display:grid;gap:12px;margin:18px 0 22px}
+.consent-check{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:13px 14px;border:1px solid #ded8d2;border-radius:13px;background:#fff}
+.consent-check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--rose)}
+.consent-check span{font-size:12px;line-height:1.55;color:#5f6067}
+.consent-check a{text-decoration:underline;text-underline-offset:2px;color:var(--rose-dark)}
+.contact-form .button{width:100%;border:0;cursor:pointer}
+.form-status{min-height:20px;margin:12px 0 0;font-size:12px;color:#6b676d;text-align:center}
+@media(max-width:540px){.contact-form{margin-top:24px}.contact-field input,.contact-field textarea{font-size:16px}.consent-check{padding:12px}}

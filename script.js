@@ -105,3 +105,34 @@ if(aboutGallery){
     console.error("Не удалось собрать новый портрет:",error);
   }
 })();
+
+
+// Contact form: data stays in the browser until the user sends the prepared message in Telegram.
+document.querySelectorAll('[data-contact-form]').forEach(form=>{
+  const status=form.querySelector('[data-form-status]');
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    const name=(form.elements.name?.value||'').trim();
+    const request=(form.elements.request?.value||'').trim();
+    const version=form.dataset.consentVersion||'05.11.2026';
+    const topic=form.dataset.topic||document.title;
+    const message=[
+      'Здравствуйте, Евгений.',
+      '',
+      'Имя: '+name,
+      'Страница: '+topic,
+      'Запрос: '+request,
+      '',
+      'Согласие на обработку персональных данных для первичного обращения: ДА.',
+      'Редакция согласия: '+version+'.',
+      'Подтверждаю, что через веб-форму не передаю сведения о здоровье, интимной жизни и иные специальные категории персональных данных.'
+    ].join('\n');
+    const url='https://t.me/Evgeniy_Prudnikov?text='+encodeURIComponent(message);
+    if(status) status.textContent='Открываю Telegram. Сообщение будет отправлено только после вашего подтверждения в приложении.';
+    window.open(url,'_blank','noopener,noreferrer');
+  });
+});
