@@ -1,0 +1,35 @@
+name: Deploy to SprintHost
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Deploy website
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: 141.8.192.25
+          username: evgenyweb@a1307904
+          password: ${{ secrets.SPRINTHOST_FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          local-dir: ./
+          server-dir: ./
+          log-level: minimal
+          timeout: 60000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .github/**
+            README.md
