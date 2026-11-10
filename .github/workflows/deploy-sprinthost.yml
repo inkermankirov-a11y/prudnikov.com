@@ -37,3 +37,8 @@ jobs:
             **/node_modules/**
             .github/**
             README.md
+
+      - name: Verify public site
+        run: |
+          curl --fail --silent --show-error --location --max-time 20 https://evgenyprudnikov.ru/ > /dev/null
+          curl --fail --silent --show-error --location --max-time 20 https://evgenyprudnikov.ru/privacy/ > /dev/null
