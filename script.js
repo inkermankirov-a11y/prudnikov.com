@@ -118,7 +118,7 @@ document.querySelectorAll('[data-contact-form]').forEach(form=>{
     }
     const name=(form.elements.name?.value||'').trim();
     const request=(form.elements.request?.value||'').trim();
-    const version=form.dataset.consentVersion||'05.11.2026';
+    const version=form.dataset.consentVersion||'10.11.2026';
     const topic=form.dataset.topic||document.title;
     const message=[
       'Здравствуйте, Евгений.',
